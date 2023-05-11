@@ -1,0 +1,28 @@
+main {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+#buttons {
+    display: flex;
+}
+
+#numbers {
+    border: 1px solid red;
+}
+
+#operators {
+    border: 1px solid green;
+}
+
+#numbers {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#operators {
+    display: flex;
+    flex-direction: column;
+}
