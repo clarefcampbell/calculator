@@ -14,15 +14,12 @@ main {
 
 #operators {
     border: 1px solid green;
+    display: flex;
+    flex-direction: column;  
 }
 
 #numbers {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-}
-
-#operators {
-    display: flex;
     flex-direction: column;
 }
