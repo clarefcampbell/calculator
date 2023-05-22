@@ -1,7 +1,7 @@
 /*Global Variable Declaration*/
 let num1 = 0;
 let num2 = 0;
-let oper = '';
+let operator = 'test';
 let result = 0;
 let displayValue = ''
 
@@ -26,18 +26,17 @@ function divide (num1, num2) {
 function operate (oper, num1, num2) {
     switch (oper) {
         case '+':
-          result = add(num1, num2);
-          break;
+            return add(num1, num2);
         case '-':
-            result = subtract(num1, num2);
-        case '*':
-          result = multiply(num1, num2);
-          break;
+            return subtract(num1, num2);
+        case 'x':
+            return multiply(num1, num2);
         case '/':
-            result = divide(num1, num2);
+            return divide(num1, num2);
         default:
           console.log('error');
       }
+
 }
 
 /*Document query selectors*/
@@ -58,14 +57,19 @@ nums.forEach(number => number.addEventListener('click', (e) => {
 }));
 
 opers.forEach(oper => oper.addEventListener('click', (e) => {
-    if(num1 = 0) {
+    if(num1 == 0) {
+        operator = e.target.innerHTML;
         num1 = +readoutField.innerHTML;
-        oper = e.target.innerHTML;
-        historyField.innerHTML += num1 + ' ' + oper + ' ';
-        readoutField.innerHTML = '0';
     } else {
         num2 = +readoutField.innerHTML;
+        console.log('num1 - ' + num1 + ', num2 - ' + num2 + ', oper - ' + operator)
+        result = operate(operator, num1, num2);
+        console.log(result);
+        num1 = result;
+        operator = e.target.innerHTML;
     }
+    historyField.innerHTML += readoutField.innerHTML + ' ' + operator + ' ';
+    readoutField.innerHTML = 0;
 }))
 
 clearBtn.addEventListener('click', () => {
@@ -77,5 +81,8 @@ clearBtn.addEventListener('click', () => {
 });
 
 equalBtn.addEventListener('click', () => {
-    
+    console.log(operator);
+    num2 = +readoutField.innerHTML;
+    result = operate(operator, num1, num2);
+    console.log('num1 - ' + num1 + ', num2 - ' + num2 + ', oper - ' + operator + ', result - ', result);
 });
