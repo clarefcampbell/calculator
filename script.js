@@ -77,8 +77,8 @@ opers.forEach(oper => oper.addEventListener('click', (e) => {
 
 clearBtn.addEventListener('click', () => {
     display.innerHTML = '0';
-    num1s = 0;
-    num2s = 0; 
+    num1s = '';
+    num2s = ''; 
     result = 0;
     currentValue = '';
 });
