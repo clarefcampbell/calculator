@@ -84,8 +84,8 @@ clearBtn.addEventListener('click', () => {
 });
 
 equalBtn.addEventListener('click', () => {
-    console.log(operator);
-    num2 = +display.innerHTML;
-    result = operate(operator, num1, num2);
-    console.log('num1 - ' + num1 + ', num2 - ' + num2 + ', oper - ' + operator + ', result - ', result);
+    num2s = currentValue;
+    result = operate(operator, +num1s, +num2s);
+    updateDisplay(num1s, num2s, operator);
+    display.innerHTML += ' = ' + result;
 });
