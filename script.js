@@ -39,8 +39,8 @@ function operate (oper, num1, num2) {
 
 }
 
-function updateDisplay (num1, num2, oper) {
-    display.innerHTML = num1 + ' ' + oper + ' ' + num2;
+function updateDisplay (field1, field2, oper) {
+    display.innerHTML = field1 + ' ' + oper + ' ' + field2;
 }
 
 /*Document query selectors*/
@@ -52,12 +52,21 @@ const opers = Array.from(document.querySelector('#operators').children);
 
 /*Events*/
 nums.forEach(number => number.addEventListener('click', (e) => {
+    if(result != 0) {
+        num1s = result;
+        num2s = ''; 
+        result = 0;
+        currentValue = '';
+    }
     if(currentValue == ''){
         currentValue = e.target.innerHTML;
-        updateDisplay(currentValue, '', '');
     } else {
         currentValue += e.target.innerHTML;
-        updateDisplay(currentValue,'','');
+    }
+    if(num1s != '') {
+        updateDisplay(num1s, currentValue, operator);
+    } else {
+        updateDisplay(currentValue, '', '');
     }
 }));
 
