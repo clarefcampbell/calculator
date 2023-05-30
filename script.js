@@ -20,6 +20,9 @@ function multiply (num1, num2) {
 }
 
 function divide (num1, num2) {
+    if(num2 == 0) {
+        return '>:(';
+    }
     return num1 / num2; 
 }
 
@@ -37,6 +40,14 @@ function operate (oper, num1, num2) {
           console.log('error');
       }
 
+}
+
+function clear() {
+    display.innerHTML = '0';
+    num1s = '';
+    num2s = ''; 
+    result = 0;
+    currentValue = '';
 }
 
 function updateDisplay (field1, field2, oper) {
@@ -84,13 +95,7 @@ opers.forEach(oper => oper.addEventListener('click', (e) => {
     updateDisplay(num1s, num2s, operator);
 }))
 
-clearBtn.addEventListener('click', () => {
-    display.innerHTML = '0';
-    num1s = '';
-    num2s = ''; 
-    result = 0;
-    currentValue = '';
-});
+clearBtn.addEventListener('click', clear);
 
 equalBtn.addEventListener('click', () => {
     num2s = currentValue;
