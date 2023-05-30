@@ -98,6 +98,9 @@ opers.forEach(oper => oper.addEventListener('click', (e) => {
 clearBtn.addEventListener('click', clear);
 
 equalBtn.addEventListener('click', () => {
+    if(num1s == '' || currentValue == '') {
+        return;
+    }
     num2s = currentValue;
     result = operate(operator, +num1s, +num2s);
     updateDisplay(num1s, num2s, operator);
