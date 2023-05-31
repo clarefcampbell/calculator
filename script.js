@@ -39,7 +39,6 @@ function operate (oper, num1, num2) {
         default:
           console.log('error');
       }
-
 }
 
 function clear() {
@@ -66,21 +65,13 @@ nums.forEach(number => number.addEventListener('click', (e) => {
     if(result != 0) {
         clear();
     }
-    if(currentValue == ''){
-        currentValue = e.target.innerHTML;
-    } else {
-        currentValue += e.target.innerHTML;
-    }
-    /*currentValue = currentValue == '' ? e.target.innerHTML : currentValue + e.target.innerHTML;*/
-    if(num1s != '') {
-        updateDisplay(num1s, currentValue, operator);
-    } else {
-        updateDisplay(currentValue, '', '');
-    }
+    currentValue = currentValue == '' ? e.target.innerHTML : currentValue + e.target.innerHTML;
+    num1s == '' ? updateDisplay(currentValue, '', '') : updateDisplay(num1s, currentValue, operator);
 }));
 
 opers.forEach(oper => oper.addEventListener('click', (e) => {
     if(result != 0) {
+        /*Handling if equals sign has been pressed*/
         num1s = result;
         operator = e.target.innerHTML;
         result = 0;
@@ -104,6 +95,7 @@ clearBtn.addEventListener('click', clear);
 
 equalBtn.addEventListener('click', () => {
     if(num1s == '' || currentValue == '') {
+        /*Skip equals functionality if requirements are not met*/
         return;
     }
     num2s = currentValue;
