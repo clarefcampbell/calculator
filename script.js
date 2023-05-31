@@ -1,7 +1,7 @@
 /*Global Variable Declaration*/
 let num1s = '';
 let num2s = '';
-let operator = 'test';
+let operator = '';
 let result = 0;
 currentValue = '';
 
@@ -64,16 +64,14 @@ const opers = Array.from(document.querySelector('#operators').children);
 /*Events*/
 nums.forEach(number => number.addEventListener('click', (e) => {
     if(result != 0) {
-        num1s = result;
-        num2s = ''; 
-        result = 0;
-        currentValue = '';
+        clear();
     }
     if(currentValue == ''){
         currentValue = e.target.innerHTML;
     } else {
         currentValue += e.target.innerHTML;
     }
+    /*currentValue = currentValue == '' ? e.target.innerHTML : currentValue + e.target.innerHTML;*/
     if(num1s != '') {
         updateDisplay(num1s, currentValue, operator);
     } else {
@@ -82,6 +80,13 @@ nums.forEach(number => number.addEventListener('click', (e) => {
 }));
 
 opers.forEach(oper => oper.addEventListener('click', (e) => {
+    if(result != 0) {
+        num1s = result;
+        operator = e.target.innerHTML;
+        result = 0;
+        updateDisplay(num1s, num2s, operator);
+        return;
+    }
     if(num1s == '') {
         num1s = currentValue;
     } else {
@@ -105,4 +110,6 @@ equalBtn.addEventListener('click', () => {
     result = operate(operator, +num1s, +num2s);
     updateDisplay(num1s, num2s, operator);
     display.innerHTML += ' = ' + result;
+    num2s = '';
+    currentValue = '';
 });
