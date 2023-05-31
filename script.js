@@ -59,6 +59,7 @@ const clearBtn = document.querySelector('#clear')
 const equalBtn = document.querySelector('#equals');
 const nums = Array.from(document.querySelector('#numbers').children);
 const opers = Array.from(document.querySelector('#operators').children);
+const backspace = document.querySelector('#backspace');
 
 /*Events*/
 nums.forEach(number => number.addEventListener('click', (e) => {
@@ -109,4 +110,13 @@ equalBtn.addEventListener('click', () => {
     num2s = '';
     currentValue = '';
 });
+
+backspace.addEventListener('click', () => {
+    if(result != 0){
+        clear();
+        return;
+    }
+    currentValue = currentValue.slice(0, -1);
+    num1s == '' ? updateDisplay(currentValue, '', '') : updateDisplay(num1s, currentValue, operator);
+})
 /*ticket: pressing opers multiple times*/
