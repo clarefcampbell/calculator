@@ -65,6 +65,9 @@ nums.forEach(number => number.addEventListener('click', (e) => {
     if(result != 0) {
         clear();
     }
+    if(e.target.innerHTML == "." && currentValue.includes(".")){
+        return;
+    }
     currentValue = currentValue == '' ? e.target.innerHTML : currentValue + e.target.innerHTML;
     num1s == '' ? updateDisplay(currentValue, '', '') : updateDisplay(num1s, currentValue, operator);
 }));
@@ -78,6 +81,7 @@ opers.forEach(oper => oper.addEventListener('click', (e) => {
         updateDisplay(num1s, num2s, operator);
         return;
     }
+    currentValue.endsWith(".") ? currentValue += 0 : currentValue;
     if(num1s == '') {
         num1s = currentValue;
     } else {
@@ -105,3 +109,4 @@ equalBtn.addEventListener('click', () => {
     num2s = '';
     currentValue = '';
 });
+/*ticket: pressing opers multiple times*/
