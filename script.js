@@ -123,4 +123,3 @@ backspace.addEventListener('click', () => {
         updateDisplay(num1s, currentValue, operator);
     }
 })
-/*ticket: pressing opers multiple times*/
