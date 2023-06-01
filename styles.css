@@ -1,8 +1,9 @@
 body {
+    background-color: darkslateblue;
 }
 
 main {
-    border: 1px solid black;
+    border: 10px solid black;
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -22,6 +23,7 @@ main {
 
 #operators > button {
     flex-grow: 1;
+    background-color: lightskyblue;
 }
 
 #numbers {
@@ -31,20 +33,46 @@ main {
     justify-content: stretch;
 }
 
+#numbers > * {
+    background-color: lightgrey;
+}
+
 #numbers > *, #utilities > * {
     flex-grow: 1;
 }
 
 #display {
     text-align: right;
+    padding: 0px 10px;
+    background-color: lightgrey;
+    border-bottom: 3px solid black;
 }
 
-#numbers > button, #operators > button, #equals, #utilities > button {
+button {
     min-width: 95px;
     height: 50px;
+    border: 1px solid darkgrey;
+    font-size: medium;
 }
 
 #utilities {
     display: flex;
     align-content: stretch;
+}
+
+#utilities > * {
+    background-color: rgb(248, 127, 127);
+}
+
+#equals {
+    background-color: lightgreen;
+}
+
+#utilities, #numbers, #operators, #equals, #display {
+    border: 1px solid rgb(75, 74, 74);
+}
+
+footer {
+    padding-top: 10px;
+    text-align: center;
 }
