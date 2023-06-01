@@ -2,24 +2,45 @@ main {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+    width: 400px;
 }
 
 #buttons {
     display: flex;
 }
 
-#numbers {
-    border: 1px solid red;
+#operators {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-#operators {
-    border: 1px solid green;
-    display: flex;
-    flex-direction: column;  
+#operators > button {
+    flex-grow: 1;
 }
 
 #numbers {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    width: 300px;
+    flex-grow: 3;
+    justify-content: stretch;
+}
+
+#numbers > *, #utilities > * {
+    flex-grow: 1;
+}
+
+#display {
+    text-align: right;
+}
+
+#numbers > button, #operators > button, #equals, #utilities > button {
+    min-width: 95px;
+    height: 50px;
+}
+
+#utilities {
+    display: flex;
+    align-content: stretch;
 }
