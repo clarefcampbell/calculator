@@ -47,6 +47,7 @@ function clear() {
     num2s = ''; 
     result = 0;
     currentValue = '';
+    operator = '';
 }
 
 function updateDisplay (field1, field2, oper) {
@@ -114,9 +115,12 @@ equalBtn.addEventListener('click', () => {
 backspace.addEventListener('click', () => {
     if(result != 0){
         clear();
-        return;
     }
     currentValue = currentValue.slice(0, -1);
-    num1s == '' ? updateDisplay(currentValue, '', '') : updateDisplay(num1s, currentValue, operator);
+    if(currentValue == '' && num1s == '') {
+        display.innerHTML = '0';
+    } else {
+        updateDisplay(num1s, currentValue, operator);
+    }
 })
 /*ticket: pressing opers multiple times*/
