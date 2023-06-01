@@ -1,8 +1,13 @@
+body {
+}
+
 main {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     width: 400px;
+    margin: auto;
+    margin-top: 50px;
 }
 
 #buttons {
@@ -22,7 +27,6 @@ main {
 #numbers {
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
     flex-grow: 3;
     justify-content: stretch;
 }
